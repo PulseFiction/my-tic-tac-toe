@@ -1,0 +1,90 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, rgb(110, 189, 235), rgb(173, 76, 230));
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+    background-color: rgba(175, 186, 206, 0.212);
+    box-shadow: 1px 1px 5px rgba(145, 145, 145, 0.336);
+}
+
+.user-input {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#player-one-name,
+#player-two-name {
+    
+    border: none;
+}
+
+.score {
+    display: flex;
+    gap: 2rem;
+    
+}
+
+.submit {
+    background-color: rgb(0, 102, 255);
+    color: #fff;
+    font-size: 20pt;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+.submit:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: rgb(0, 102, 255);
+}
+
+.crosses,
+.noughts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.score span {
+    font-size: 20pt;
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    padding: 1rem;
+    gap: 5px;
+}
+
+.cell {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.267);
+    cursor: pointer;
+    
+}
+
+.cell:hover {
+    background-color: rgba(255, 254, 254, 0.5);
+}
