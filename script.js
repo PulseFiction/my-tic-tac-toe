@@ -10,8 +10,8 @@ class Player {
 function validateGame() {
   const playerOneName = document.querySelector("#player-one-name").value;
   const playerTwoName = document.querySelector("#player-two-name").value;
-  const playerOneNameBox = document.querySelector("#player-one-name");
-  const playerTwoNameBox = document.querySelector("#player-two-name");
+  // const playerOneNameBox = document.querySelector("#player-one-name");
+  // const playerTwoNameBox = document.querySelector("#player-two-name");
   const noughtsBox = document.querySelector("#noughts");
   const crossesBox = document.querySelector("#crosses");
   const button = document.querySelector(".submit");
@@ -120,7 +120,16 @@ function startGame(playerOne, playerTwo) {
         }
       }
 
-      checkWin(playerMoves, playerTwoMoves);
+      const winMessage = document.querySelector('.win');
+
+      if (checkWin(playerMoves, playerTwoMoves) === 1) {
+        winMessage.textContent = `${playerOne.name} wins!`;
+        winMessage.style.display = 'flex';
+      } else if (checkWin(playerMoves, playerTwoMoves) === 2) {
+        winMessage.textContent = `${playerTwo.name} wins!`
+        winMessage.style.display = 'flex';
+      }
+      ;
     });
   });
 }
@@ -144,9 +153,9 @@ function checkWin(playerOneArray, playerTwoArray) {
 
   for (let i = 0; i < WINNING_COMBINATIONS.length ; i++) {
     if (isEqual(playerOneArray, WINNING_COMBINATIONS[i])) {
-      alert('Winner player 1');
+      return 1;
     } else if (isEqual(playerTwoArray, WINNING_COMBINATIONS[i])) {
-      alert('Winner player 2');
+      return 2;
     }
   }
  
